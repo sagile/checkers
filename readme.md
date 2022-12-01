@@ -38,3 +38,43 @@ Now see assets in ui
 Stop run, git commit, and do:
 `docker run --rm -it -v $(pwd):/checkers -w /checkers checkers_i ignite scaffold message createPost title body`
 
+--------------------------------------------
+## Store Object - Make a Checkers Blockchain
+`mkdir x/checkers/rules`
+`curl https://raw.githubusercontent.com/batkinson/checkers-go/a09daeb1548dd4cc0145d87c8da3ed2ea33a62e3/checkers/checkers.go | sed 's/package checkers/package rules/' > x/checkers/rules/checkers.go`
+
+counter and container:
+`docker run --rm -it \
+-v $(pwd):/checkers \
+-w /checkers \
+checkers_i \
+ignite scaffold single systemInfo nextId:uint \
+--module checkers \
+--no-message`
+
+game type:
+`docker run --rm -it \
+-v $(pwd):/checkers \
+-w /checkers \
+checkers_i \
+ignite scaffold map storedGame board turn black red \
+--index index \
+--module checkers \
+--no-message`
+
+recompile after updating message GenesisState systemInfo:
+`docker run --rm -it \
+-v $(pwd):/checkers \
+-w /checkers \
+checkers_i \
+ignite generate proto-go`
+
+
+added code to checkers/x/checkers/types/full_game.go
+
+run unit tests:
+`docker run --rm -it \
+-v $(pwd):/checkers \
+-w /checkers \
+checkers_i \
+go test github.com/alice/checkers/x/checkers/keeper`

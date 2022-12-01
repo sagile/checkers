@@ -1,0 +1,9 @@
+syntax = "proto3";
+package sagitoptal.checkers.checkers;
+
+option go_package = "github.com/sagitoptal/checkers/x/checkers/types";
+
+message SystemInfo {
+  uint64 nextId = 1; 
+  
+}
