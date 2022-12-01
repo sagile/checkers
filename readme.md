@@ -77,4 +77,4 @@ run unit tests:
 -v $(pwd):/checkers \
 -w /checkers \
 checkers_i \
-go test github.com/alice/checkers/x/checkers/keeper`
+go test github.com/sagitoptal/checkers/x/checkers/keeper`
