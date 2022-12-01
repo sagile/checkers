@@ -78,3 +78,27 @@ run unit tests:
 -w /checkers \
 checkers_i \
 go test github.com/sagitoptal/checkers/x/checkers/keeper`
+
+## Start the chain in its shell:
+`docker run --rm -it \
+    --name checkers \
+    -v $(pwd):/checkers \
+    -w /checkers \
+    checkers_i \
+    ignite chain serve --reset-once`
+
+## check status
+docker exec -it checkers \
+    checkersd query checkers --help
+
+docker exec -it checkers \
+    checkersd query checkers show-system-info
+
+docker exec -it checkers \
+    checkersd query checkers show-system-info --output json
+
+docker exec -it checkers \
+    checkersd query checkers list-stored-game
+
+docker exec -it checkers \
+    checkersd tx checkers --help
