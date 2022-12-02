@@ -25,6 +25,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 		Turn:  rules.PieceStrings[newGame.Turn],
 		Black: msg.Black,
 		Red:   msg.Red,
+		MoveCount: 0,
 	}
 
 	err := storedGame.Validate()
@@ -35,7 +36,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 	k.Keeper.SetStoredGame(ctx, storedGame)
 	systemInfo.NextId++
 	k.Keeper.SetSystemInfo(ctx, systemInfo)
-	
+
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(types.GameCreatedEventType,
 			sdk.NewAttribute(types.GameCreatedEventCreator, msg.Creator),
@@ -44,7 +45,7 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 			sdk.NewAttribute(types.GameCreatedEventRed, msg.Red),
 		),
 	)
-	
+
 	return &types.MsgCreateGameResponse{
 		GameIndex: newIndex,
 	}, nil

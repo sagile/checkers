@@ -50,6 +50,8 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 	if moveErr != nil {
 		return nil, sdkerrors.Wrapf(types.ErrWrongMove, moveErr.Error())
 	}
+	
+	storedGame.MoveCount++
 	storedGame.Board = game.String()
 	storedGame.Turn = rules.PieceStrings[game.Turn]
 	k.Keeper.SetStoredGame(ctx, storedGame)
@@ -63,7 +65,7 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 			sdk.NewAttribute(types.MovePlayedEventWinner, rules.PieceStrings[game.Winner()]),
 		),
 	)
-	
+
 	return &types.MsgPlayMoveResponse{
 		CapturedX: int32(captured.X),
 		CapturedY: int32(captured.Y),

@@ -166,3 +166,20 @@ try ilegal move:
 
 correct move:
 `docker exec -it checkers checkersd tx checkers play-move 1 1 2 2 3 --from $alice`
+
+## Reject a Game
+
+`docker run --rm -it \
+    -v $(pwd):/checkers \
+    -w /checkers \
+    checkers_i \
+    ignite scaffold message rejectGame gameIndex --module checkers`
+
+add moves counter to each game:
+
+recompile the relevant Go files:
+`docker run --rm -it \
+    -v $(pwd):/checkers \
+    -w /checkers \
+    checkers_i \
+    ignite generate proto-go`
