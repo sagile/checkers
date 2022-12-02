@@ -102,3 +102,59 @@ docker exec -it checkers \
 
 docker exec -it checkers \
     checkersd tx checkers --help
+
+
+## create a game
+`docker run --rm -it \
+    -v $(pwd):/checkers \
+    -w /checkers \
+    checkers_i \
+    ignite scaffold message createGame black red \
+    --module checkers \
+    --response gameIndex`
+
+recompile after updating message GenesisState systemInfo:
+`docker run --rm -it \
+-v $(pwd):/checkers \
+-w /checkers \
+checkers_i \
+ignite generate proto-go`
+
+!!! reached here: !!!
+https://tutorials.cosmos.network/hands-on-exercise/1-ignite-cli/4-create-message.html
+docker exec -it checkers \
+checkersd tx checkers create-game $alice $bob --from $alice --dry-run
+
+Error: key with address26BF2AC1B6B114E9A3E87AA4D03299DE5C845C6Bnot found: key not found
+Usage:
+checkersd tx checkers create-game [black] [red] [flags]
+
+## set users
+export alice=$(docker exec checkers checkersd keys show alice -a)
+export bob=$(docker exec checkers checkersd keys show bob -a)
+
+## create a game
+docker exec -it checkers \
+    checkersd tx checkers create-game $alice $bob --from $alice --dry-run
+
+docker exec -it checkers \
+    checkersd tx checkers create-game $alice $bob --from $alice --gas auto
+
+Show the system info:
+docker exec -it checkers \
+    checkersd query checkers show-system-info
+
+List all stored games:
+docker exec -it checkers \
+    checkersd query checkers list-stored-game
+
+Show the new game alone:
+docker exec -it checkers \
+    checkersd query checkers show-stored-game 1
+
+Show the new game board:
+docker exec -it checkers \
+    bash -c "checkersd query checkers show-stored-game 1 --output json | jq \".storedGame.board\" | sed 's/\"//g' | sed 's/|/\n/g'"
+
+
+## Make a move
