@@ -8,7 +8,7 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/client"
 	// "github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/sagitoptal/checkers/x/checkers/types"
+	"checkers/x/checkers/types"
 )
 
 var (

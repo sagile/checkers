@@ -3,7 +3,7 @@ package types_test
 import (
 	"testing"
 
-	"github.com/sagitoptal/checkers/x/checkers/types"
+	"checkers/x/checkers/types"
 	"github.com/stretchr/testify/require"
 )
 

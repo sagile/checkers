@@ -3,10 +3,10 @@ package checkers
 import (
 	"fmt"
 
+	"checkers/x/checkers/keeper"
+	"checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/sagitoptal/checkers/x/checkers/keeper"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 // NewHandler ...

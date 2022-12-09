@@ -1,9 +1,9 @@
 package checkers
 
 import (
+	"checkers/x/checkers/keeper"
+	"checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/sagitoptal/checkers/x/checkers/keeper"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

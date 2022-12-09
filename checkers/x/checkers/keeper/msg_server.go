@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/sagitoptal/checkers/x/checkers/types"
+	"checkers/x/checkers/types"
 )
 
 type msgServer struct {

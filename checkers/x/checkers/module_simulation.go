@@ -3,15 +3,15 @@ package checkers
 import (
 	"math/rand"
 
+	"checkers/testutil/sample"
+	checkerssimulation "checkers/x/checkers/simulation"
+	"checkers/x/checkers/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
 	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"github.com/sagitoptal/checkers/testutil/sample"
-	checkerssimulation "github.com/sagitoptal/checkers/x/checkers/simulation"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 // avoid unused import issue

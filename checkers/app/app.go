@@ -98,11 +98,11 @@ import (
 	monitoringpkeeper "github.com/tendermint/spn/x/monitoringp/keeper"
 	monitoringptypes "github.com/tendermint/spn/x/monitoringp/types"
 
-	"github.com/sagitoptal/checkers/docs"
+	"checkers/docs"
 
-	checkersmodule "github.com/sagitoptal/checkers/x/checkers"
-	checkersmodulekeeper "github.com/sagitoptal/checkers/x/checkers/keeper"
-	checkersmoduletypes "github.com/sagitoptal/checkers/x/checkers/types"
+	checkersmodule "checkers/x/checkers"
+	checkersmodulekeeper "checkers/x/checkers/keeper"
+	checkersmoduletypes "checkers/x/checkers/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 

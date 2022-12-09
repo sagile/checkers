@@ -4,9 +4,9 @@ import (
 	"context"
 	"strconv"
 
+	"checkers/x/checkers/rules"
+	"checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/sagitoptal/checkers/x/checkers/rules"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (*types.MsgCreateGameResponse, error) {
@@ -20,11 +20,11 @@ func (k msgServer) CreateGame(goCtx context.Context, msg *types.MsgCreateGame) (
 
 	newGame := rules.New()
 	storedGame := types.StoredGame{
-		Index: newIndex,
-		Board: newGame.String(),
-		Turn:  rules.PieceStrings[newGame.Turn],
-		Black: msg.Black,
-		Red:   msg.Red,
+		Index:     newIndex,
+		Board:     newGame.String(),
+		Turn:      rules.PieceStrings[newGame.Turn],
+		Black:     msg.Black,
+		Red:       msg.Red,
 		MoveCount: 0,
 	}
 

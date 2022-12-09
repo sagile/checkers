@@ -4,10 +4,10 @@ import (
 	"context"
 	"strconv"
 
+	"checkers/x/checkers/rules"
+	"checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/sagitoptal/checkers/x/checkers/rules"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*types.MsgPlayMoveResponse, error) {
@@ -50,7 +50,7 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 	if moveErr != nil {
 		return nil, sdkerrors.Wrapf(types.ErrWrongMove, moveErr.Error())
 	}
-	
+
 	storedGame.MoveCount++
 	storedGame.Board = game.String()
 	storedGame.Turn = rules.PieceStrings[game.Turn]

@@ -3,9 +3,9 @@ package keeper
 import (
 	"context"
 
+	"checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 func (k msgServer) RejectGame(goCtx context.Context, msg *types.MsgRejectGame) (*types.MsgRejectGameResponse, error) {
@@ -27,7 +27,7 @@ func (k msgServer) RejectGame(goCtx context.Context, msg *types.MsgRejectGame) (
 	} else {
 		return nil, sdkerrors.Wrapf(types.ErrCreatorNotPlayer, "%s", msg.Creator)
 	}
-	
+
 	k.Keeper.RemoveStoredGame(ctx, msg.GameIndex)
 
 	ctx.EventManager().EmitEvent(
@@ -36,6 +36,6 @@ func (k msgServer) RejectGame(goCtx context.Context, msg *types.MsgRejectGame) (
 			sdk.NewAttribute(types.GameRejectedEventGameIndex, msg.GameIndex),
 		),
 	)
-	
+
 	return &types.MsgRejectGameResponse{}, nil
 }

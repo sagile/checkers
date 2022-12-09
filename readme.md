@@ -18,10 +18,11 @@ Run container:
 //?? docker start checkers
 ```
 
-`docker run --rm -it -v $(pwd):/checkers -w /checkers checkers_i ignite scaffold chain github.com/sagitoptal/checkers`
+`docker run --rm -it -v $(pwd):/checkers -w /checkers checkers_i ignite scaffold chain checkers`
 
-## cd checkers
+## start docker container
 
+`cd checkers`
 `docker run --rm -it -v $(pwd):/checkers -w /checkers -p 1317:1317 -p 3000:3000 -p 4500:4500 -p 5000:5000 -p 26657:26657 --name checkers checkers_i ignite chain serve`
 
 ## Interact via the CLI
@@ -85,7 +86,7 @@ run unit tests:
 -v $(pwd):/checkers \
 -w /checkers \
 checkers_i \
-go test github.com/sagitoptal/checkers/x/checkers/keeper`
+go test checkers/x/checkers/keeper`
 
 ## Start the chain in its shell:
 
@@ -183,3 +184,9 @@ recompile the relevant Go files:
     -w /checkers \
     checkers_i \
     ignite generate proto-go`
+
+
+## generate exxecutable
+
+`cd cd checkers/cmd/checkersd`
+`go build`

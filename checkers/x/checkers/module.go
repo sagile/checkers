@@ -11,14 +11,14 @@ import (
 
 	abci "github.com/tendermint/tendermint/abci/types"
 
+	"checkers/x/checkers/client/cli"
+	"checkers/x/checkers/keeper"
+	"checkers/x/checkers/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
 	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/sagitoptal/checkers/x/checkers/client/cli"
-	"github.com/sagitoptal/checkers/x/checkers/keeper"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 var (

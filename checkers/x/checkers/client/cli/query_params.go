@@ -3,9 +3,9 @@ package cli
 import (
 	"context"
 
+	"checkers/x/checkers/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 	"github.com/spf13/cobra"
 )
 

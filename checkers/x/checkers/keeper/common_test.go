@@ -1,6 +1,6 @@
 package keeper_test
 
-import "github.com/sagitoptal/checkers/x/checkers/testutil"
+import "checkers/x/checkers/testutil"
 
 const (
 	alice = testutil.Alice

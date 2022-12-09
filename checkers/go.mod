@@ -1,4 +1,4 @@
-module github.com/sagitoptal/checkers
+module checkers
 
 go 1.16
 

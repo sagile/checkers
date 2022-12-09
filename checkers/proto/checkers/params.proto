@@ -3,7 +3,7 @@ package sagitoptal.checkers.checkers;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/sagitoptal/checkers/x/checkers/types";
+option go_package = "checkers/x/checkers/types";
 
 // Params defines the parameters for the module.
 message Params {

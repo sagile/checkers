@@ -10,9 +10,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	keepertest "github.com/sagitoptal/checkers/testutil/keeper"
-	"github.com/sagitoptal/checkers/testutil/nullify"
-	"github.com/sagitoptal/checkers/x/checkers/types"
+	keepertest "checkers/testutil/keeper"
+	"checkers/testutil/nullify"
+	"checkers/x/checkers/types"
 )
 
 // Prevent strconv unused error

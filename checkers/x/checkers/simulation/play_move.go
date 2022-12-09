@@ -3,11 +3,11 @@ package simulation
 import (
 	"math/rand"
 
+	"checkers/x/checkers/keeper"
+	"checkers/x/checkers/types"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
-	"github.com/sagitoptal/checkers/x/checkers/keeper"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 func SimulateMsgPlayMove(

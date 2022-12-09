@@ -4,10 +4,10 @@ import (
 	"context"
 	"testing"
 
+	keepertest "checkers/testutil/keeper"
+	"checkers/x/checkers/keeper"
+	"checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	keepertest "github.com/sagitoptal/checkers/testutil/keeper"
-	"github.com/sagitoptal/checkers/x/checkers/keeper"
-	"github.com/sagitoptal/checkers/x/checkers/types"
 )
 
 func setupMsgServer(t testing.TB) (types.MsgServer, context.Context) {

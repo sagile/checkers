@@ -3,8 +3,8 @@ package types
 import (
 	"testing"
 
+	"checkers/testutil/sample"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/sagitoptal/checkers/testutil/sample"
 	"github.com/stretchr/testify/require"
 )
 
